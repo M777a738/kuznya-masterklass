@@ -27,6 +27,7 @@
             <div class="header__container">
                 <div class="header__menu">
                     <nav class="menu__body">
+                        <div class="menu__close" id="menuClose">✖</div> <!-- Крестик для закрытия меню -->
                         <ul class="menu__list">
                             <li><a href="#about" class="menu__link">О нас</a></li>
                             <li><a href="#master" class="menu__link">О мастере</a></li>
@@ -388,7 +389,10 @@
         document.addEventListener('DOMContentLoaded', function () {
             const menuIcon = document.querySelector('.menu__icon');
             const menuBody = document.querySelector('.menu__body');
-
+            const menuLinks = document.querySelectorAll('.menu__link'); // Получаем все ссылки в меню
+            const menuClose = document.getElementById('menuClose'); // Получаем элемент крестика
+    
+            // Обработчик для бургер-меню
             if (menuIcon) {
                 menuIcon.addEventListener('click', function () {
                     document.body.classList.toggle('_lock');
@@ -396,15 +400,35 @@
                     menuBody.classList.toggle('active');
                 });
             }
-
+    
+            // Обработчик для крестика
+            if (menuClose) {
+                menuClose.addEventListener('click', function () {
+                    menuBody.classList.remove('active'); // Закрываем меню
+                    document.body.classList.remove('_lock'); // Убираем блокировку прокрутки
+                    menuIcon.classList.remove('active'); // Убираем активный класс у иконки меню
+                });
+            }
+    
+            // Обработчик для ссылок в меню
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    // Скрываем меню
+                    menuBody.classList.remove('active');
+                    document.body.classList.remove('_lock'); // Убираем блокировку прокрутки
+                    menuIcon.classList.remove('active'); // Убираем активный класс у иконки меню
+                });
+            });
+    
+            // Обработчик для карточек
             const links = document.querySelectorAll('.card__link');
-
+    
             links.forEach(link => {
                 link.addEventListener('click', function (e) {
                     e.preventDefault();
                     const description = this.closest('.card__more').querySelector('.card__full-description');
                     description.classList.toggle('expanded');
-
+    
                     // Меняем текст ссылки
                     if (description.classList.contains('expanded')) {
                         this.textContent = 'Свернуть';
@@ -414,10 +438,10 @@
                 });
             });
         });
-
+    
         (function() {
             emailjs.init("TV6w2ZbNIlgBoyObE");
-
+    
             document.getElementById('contactForm').addEventListener('submit', function(e) {
                 e.preventDefault();
                 
@@ -425,7 +449,7 @@
                 const originalText = submitButton.textContent;
                 submitButton.textContent = 'Отправка...';
                 submitButton.disabled = true;
-
+    
                 // Создаем объект с данными формы
                 const formData = {
                     from_name: this.querySelector('[name="from_name"]').value,
@@ -433,7 +457,7 @@
                     phone: this.querySelector('[name="phone"]').value,
                     message: this.querySelector('[name="message"]').value
                 };
-
+    
                 // Добавляем подробный вывод ошибок
                 emailjs.send('service_t8xfw8l', 'template_0osiwat', formData)
                     .then(function(response) {
