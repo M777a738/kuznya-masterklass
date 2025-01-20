@@ -45,7 +45,7 @@ body {
     height: 100%;
     display: flex;
     align-items: center;
-    /* justify-content: center; */
+    justify-content: space-between; /* Используйте space-between для равномерного распределения */
     position: relative;
 }
 
@@ -57,10 +57,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 57px;
+    gap: 48px;
     margin: 0;
     padding: 10px;
     list-style: none;
+    flex-wrap: nowrap; /* Убедитесь, что элементы не переносятся на следующий ряд */
 }
 
 .menu__list li:nth-child(5) {
@@ -769,7 +770,7 @@ body {
     /* Центрируем сам контейнер */
     margin: auto 0;
     /* Автоматические отступы сверху и снизу */
-    /* padding-left: 20px; */
+    padding-left: 20px;
 }
 
 .contact__image-text {
@@ -1138,7 +1139,7 @@ body {
     }
 
     .menu__list {
-        gap: 30px;
+        gap: 20px;
     }
 
     .menu__link {
@@ -1183,7 +1184,7 @@ body {
     }
 
     .menu__list {
-        gap: 40px;
+        gap: 30px;
         font-size: 14px;
     }
 }
@@ -1718,6 +1719,7 @@ body {
         width: 100%;
         max-width: 168px;
         height: auto;
+      
     }
 
     .contact__fields-container {
@@ -1852,6 +1854,7 @@ body {
         /* Сохраняем пропорции изображения */
         flex-shrink: 0;
         /* Запретить уменьшение изображения */
+        margin-bottom: 0;
     }
 
     .contact__description {
@@ -1950,7 +1953,7 @@ body {
         /* Убираем отступ для текстового блока */
         text-align: center;
         /* Центрируем текст */
-
+        padding-top: 10px;
     }
 
     .contact__blue-line {
@@ -2598,6 +2601,21 @@ a {
         width: 90px; /* Уменьшаем ширину кнопки */
         font-size: 14px;
     }
+    .menu__close {
+        display: none; /* Скрываем крестик на десктопе */
+    }
+}
+@media (max-width: 950px) {
+    .menu__list {
+        gap: 30px; /* Уменьшаем отступы между пунктами меню */
+    }
+
+    .menu__list li:last-child {
+        margin-right: 60px; /* Уменьшаем отступ справа */
+    }
+    .menu__close {
+        display: none; /* Скрываем крестик на десктопе */
+    }
 }
 
 @media (max-width: 768px) {
@@ -2606,8 +2624,7 @@ a {
     }
 
     .menu__body {
-        position: fixed;
-        /* width: 100%; */
+        position: fixed; 
         width: 65%; /* Ширина меню 65% */
         height: 100%;
         top: 60px;
