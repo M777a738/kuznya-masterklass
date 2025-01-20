@@ -2601,9 +2601,7 @@ a {
         width: 90px; /* Уменьшаем ширину кнопки */
         font-size: 14px;
     }
-    .menu__close {
-        display: none; /* Скрываем крестик на десктопе */
-    }
+   
 }
 @media (max-width: 950px) {
     .menu__list {
@@ -2613,9 +2611,7 @@ a {
     .menu__list li:last-child {
         margin-right: 60px; /* Уменьшаем отступ справа */
     }
-    .menu__close {
-        display: none; /* Скрываем крестик на десктопе */
-    }
+   
 }
 
 @media (max-width: 768px) {
