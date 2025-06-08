@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Служба поддержки</title>
+    <link rel="stylesheet" href="assets.css/styles.css">
+</head>
+<body>
+    <div class="support__container" style="max-width: 700px; margin: 40px auto; background: #fff; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.07); padding: 40px 24px;">
+        <h1 style="text-align:center; color:#1D3494; margin-bottom: 24px;">Служба поддержки</h1>
+        <h2 style="color:#1D3494; margin-bottom: 12px;">Форма обратной связи</h2>
+        <form style="display:flex; flex-direction:column; gap:12px; margin-bottom:32px;">
+            <input type="text" placeholder="Ваше имя" required style="padding:10px; border-radius:8px; border:1px solid #ccc;">
+            <input type="email" placeholder="Ваш email" required style="padding:10px; border-radius:8px; border:1px solid #ccc;">
+            <textarea placeholder="Ваш вопрос" required style="padding:10px; border-radius:8px; border:1px solid #ccc; min-height:80px;"></textarea>
+            <button type="submit" style="background: linear-gradient(45deg, #F15C01 0%, #FDAA05 100%); color:#000; border:none; border-radius:8px; padding:12px 0; font-size:16px; font-weight:600; cursor:pointer;">ОТПРАВИТЬ</button>
+        </form>
+        <h2 style="color:#1D3494; margin-bottom: 12px;">Часто задаваемые вопросы</h2>
+        <div class="faq">
+            <div class="faq-item">
+                <button class="faq-question">Как записаться на мастер-класс?</button>
+                <div class="faq-answer">Через форму на главной странице или по телефону.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Где проходят занятия?</button>
+                <div class="faq-answer">Санкт-Петербург, Ленинский проспект 13В.</div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Что нужно брать с собой?</button>
+                <div class="faq-answer">Всё необходимое оборудование предоставляется на месте.</div>
+            </div>
+        </div>
+    </div>
+    <script>
+    document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', function() {
+            this.parentElement.classList.toggle('active');
+        });
+    });
+    </script>
+</body>
+</html> 
