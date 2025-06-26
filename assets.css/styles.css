@@ -1265,7 +1265,45 @@ body {
        
     }
 }
-
+@media (max-width: 700px) {
+     .hero__content {
+        width: 100%;
+        padding: 0 16px;
+        box-sizing: border-box;
+        align-items: left;
+    }
+    .hero__title {
+        font-size: 36px;
+        margin-top: clamp(12px, 6vw, 32px);
+        text-align: left;
+      }
+      .hero__subtitle {
+        width: 140%;   
+        text-align: left;
+        font-size: 17px;
+        margin-bottom: clamp(20px, 8vw, 36px);
+    }
+    .hero__button {
+        width: 100%;
+        max-width: none;         /* убираем ограничение */
+        margin: 0 0 0 0;        /* убираем auto, чтобы не было сужения */
+        box-sizing: border-box;
+       
+      }
+    .hero__image {
+        position: static; /* или relative, если не нужен абсолют */
+        width: 100%;
+        max-width: 340px;
+        margin: 0 auto;
+        top: auto;
+        transform: none;
+      }
+      .hero__image img {
+        padding-top: 0;
+        width: 100%;
+      }
+     
+  }
 
 
 @media (max-width: 480px) {
@@ -1289,10 +1327,11 @@ body {
     }
     .hero__button  {
         width: 100%;
-        max-width: 340px; /* или сколько нужно */
         margin: 0 auto;
-        display: block;
         box-sizing: border-box;
+      }
+      .hero__button:hover {
+        opacity: 100%;
       }
     .hero__image {
         position: absolute;
@@ -1313,9 +1352,21 @@ body {
     .hero {
         padding-top: 60px;
     }
+    .hero__content {
+        padding-left: 8px;
+        padding-right: 8px;
+        box-sizing: border-box;
+      }
     .hero__image {
         top: 60px; /* прижимаем картинку ровно под header */
         transform: none; /* сбрасываем transform */
+      }
+      .hero__title {
+        width: 100%;
+        max-width: 100%;
+        text-align: left; 
+        word-break: break-word;
+        hyphens: auto;
       }
     }
 
@@ -2071,10 +2122,7 @@ body {
 
 
 @media (max-width: 480px) {
-    .hero__button {
-        width: auto;
-        padding: 12px 15px;
-    }
+    
     .contact__content {
         padding: 20px 10px;
     }
@@ -3060,7 +3108,7 @@ a {
     width: 700px;
     font-size: 32px;
     margin-top: 120px;
-    margin-left: 80px;
+    margin-left: 30px;
   }
   .gallery__text p {
     font-size: 32px;
