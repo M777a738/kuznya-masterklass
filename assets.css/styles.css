@@ -307,7 +307,7 @@ body {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    padding-bottom: 40px;
+    /* padding-bottom: 40px; */
 }
 
 
@@ -1202,7 +1202,7 @@ body {
 
     .hero__button {
         padding: 15px 30px;
-        max-width: 340px;
+        /* max-width: 340px; */
        
         font-size: 16px;
     }
@@ -1266,12 +1266,21 @@ body {
     }
 }
 @media (max-width: 700px) {
-     .hero__content {
+    .hero__container {
+        position: relative;
+        display: block; /* или flex-direction: column, если нужно */
+      }
+    .hero__content {
+        position: relative;
+        z-index: 2;
         width: 100%;
-        padding: 0 16px;
+        display: flex;
+        padding: 0 16px; /* подбери под свой макет */
         box-sizing: border-box;
-        align-items: left;
-    }
+        color: #fff; /* если нужен белый текст */
+        /* можно добавить фон с прозрачностью, если текст плохо читается */
+        /* background: rgba(0,0,0,0.5); */
+      }
     .hero__title {
         font-size: 36px;
         margin-top: clamp(12px, 6vw, 32px);
@@ -1284,23 +1293,28 @@ body {
         margin-bottom: clamp(20px, 8vw, 36px);
     }
     .hero__button {
-        width: 100%;
-        max-width: none;         /* убираем ограничение */
-        margin: 0 0 0 0;        /* убираем auto, чтобы не было сужения */
-        box-sizing: border-box;
+        width: auto;
        
+        margin-left: 0;
+        margin-right: auto;
+        /* или просто margin: 0; */
+        box-sizing: border-box;
       }
-    .hero__image {
-        position: static; /* или relative, если не нужен абсолют */
-        width: 100%;
-        max-width: 340px;
-        margin: 0 auto;
-        top: auto;
-        transform: none;
+      .hero__image {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: auto;
+        z-index: 1;
+        pointer-events: none;
       }
       .hero__image img {
-        padding-top: 0;
         width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
       }
      
   }
@@ -1336,7 +1350,7 @@ body {
     .hero__image {
         position: absolute;
         right: 0;
-        top: 60%;
+        top: 50%;
         transform: translateY(-50%);
         width: 80%;   
         max-width: 300px;      
@@ -1358,7 +1372,7 @@ body {
         box-sizing: border-box;
       }
     .hero__image {
-        top: 60px; /* прижимаем картинку ровно под header */
+        top: 0; /* прижимаем картинку ровно под header */
         transform: none; /* сбрасываем transform */
       }
       .hero__title {
@@ -1412,10 +1426,13 @@ body {
         position: relative;
         width: 100%;
         height: auto;
+        
         /* Установливаем высоту на auto, чтобы сохранить пропорции */
         z-index: 1;
     }
-
+    .about__image img {
+        object-position: center bottom; /* или 50% 80% — подбери под себя */
+      }
     .about__content {
         position: absolute;
         /* Изменяем на relative, чтобы избежать наложения */
