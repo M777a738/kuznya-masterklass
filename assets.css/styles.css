@@ -266,8 +266,6 @@ body {
     content: "";
     position: absolute;
     inset: 0; /* top: 0; right: 0; bottom: 0; left: 0; */
-    background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7));
-    /* Можно просто background: rgba(0,0,0,0.5); для равномерного затемнения */
     z-index: 1;
     pointer-events: none; /* чтобы не мешал кликам */
   }
@@ -286,7 +284,7 @@ body {
     max-width: 581px;
     height: auto;
     overflow: hidden;
-    padding: 20px;
+    padding: 0 20px;
 }
 
 .about__text {
@@ -1265,7 +1263,7 @@ body {
         z-index: 2;
         width: 100%;
         display: flex;
-        padding: 0 16px; /* подбери под свой макет */
+        /* padding: 0 16px;  */
         box-sizing: border-box;
         color: #fff; /* если нужен белый текст */
         /* можно добавить фон с прозрачностью, если текст плохо читается */
@@ -1313,6 +1311,7 @@ body {
 @media (max-width: 480px) {
     .hero {
         padding-bottom: 0;
+        
     }
     .hero__title {
         font-size: 32px;
@@ -1357,8 +1356,7 @@ body {
         padding-top: 60px;
     }
     .hero__content {
-        padding-left: 8px;
-        padding-right: 8px;
+       
         box-sizing: border-box;
       }
     .hero__image {
@@ -1377,16 +1375,14 @@ body {
 @media (max-width: 1024px) {
     .about {
         min-height: 800px;
-        /* Уменьшаем минимальную высоту */
-        padding: 40px 0;
-        /* Добавляем отступы сверху и снизу */
+       
     }
     
 }
 
 @media (max-width: 768px) {
     .about {
-        min-height: 800px;
+       
         margin-bottom: 12px;
         /* Увеличиваем отступ между секциями */
     }
@@ -1405,7 +1401,7 @@ body {
     .about {
         height: auto;       
         padding: 0;
-        min-height: 400px;
+        min-height: 500px;
         /* Установливаем минимальную высоту для еще меньших экранов */
         margin-top: 0;
         background-position: center 80%;
@@ -1433,37 +1429,56 @@ body {
     }
 }
 
-@media (max-width: 1200px) {
-    .masterclass__card {
-        width: 100%;
-        flex-direction: column;
-        gap: 20px;
+@media (max-width: 1200px) and (min-width: 769px) {
+    .masterclass__container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px;
+        justify-content: center;
+        align-items: flex-start;
+      }
+    .masterclass__card {   
+        /* width: calc(50% - 32px);  */
+        margin-bottom: 32px;
+        /* можно добавить max-width: 600px; если нужно ограничить ширину */
+        box-sizing: border-box;
     }
-
+    .card, .card-image {
+        max-width: 100%; 
+        height: auto;
+      }
     .card__image,
     .card__content {
-        width: 100%;
-        max-width: 800px;
-        /* Ограничиваем максимальную ширину */
+        width:50%;
+        flex: 1 1 50%;
+       
     }
 
     .card__content-wrapper {
         width: 100%;
-        /* Контент занимает всю ширину */
+      
         padding: 0 20px;
     }
 
     .card__arrow.long-arrow {
         width: 100%;
-        /* Стрелки тоже на всю ширину */
+       
     }
+    .card__arrow {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+      }
 }
 
 @media (max-width: 768px) {
     .masterclass__container {
-        padding: 20px 15px;
+        /* padding: 20px 15px; */
+        display: block;
+       
     }
-
+    
     .masterclass__card {
         flex-direction: column;
         width: 100%;
@@ -1593,6 +1608,7 @@ body {
 
     .masterclass {
         padding: 0 0 30px;
+        margin-top: 40px !important;
     }
 
     .master__container {
@@ -1605,8 +1621,9 @@ body {
 
     .master__content {
         text-align: left;
-        padding: 0 15px;
+        padding: 0 30px;
         width: 100%;
+        max-width: 700px;
         height: auto;
         order: 1;
         display: flex;
